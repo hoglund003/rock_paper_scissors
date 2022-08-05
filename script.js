@@ -6,7 +6,7 @@ var rules = {
 
 function getPlayerChoice() {
     var choice = prompt("Please enter your choice: ");
-    choice = choice.toLowerCase()
+    choice = choice.toLowerCase();
     return choice;
 }
 
