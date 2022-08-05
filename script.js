@@ -5,9 +5,15 @@ var rules = {
 };
 
 function getPlayerChoice() {
-    choice = prompt("Please enter your choice: ");
+    var choice = prompt("Please enter your choice: ");
     choice = choice.toLowerCase()
     return choice;
+}
+
+function getComputerChoice() {
+    let index = Math.floor(Math.random() * 3);
+    var options = ["rock", "paper", "scissors"];
+    return options[index];
 }
 
 function judge(player, computer) {
