@@ -4,6 +4,12 @@ var rules = {
     "paper": "rock"
 };
 
+function getPlayerChoice() {
+    choice = prompt("Please enter your choice: ");
+    choice = choice.toLowerCase()
+    return choice;
+}
+
 function judge(player, computer) {
     var winner = "";
     if (player === computer) {
