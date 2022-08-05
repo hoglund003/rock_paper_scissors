@@ -1,6 +1,6 @@
 
 function getComputerChoice() {
-    var n = Math.floor(Math.random() * 3);
+    var n = Math.ceil(Math.random() * 3);
     return n
 }
 
@@ -16,3 +16,15 @@ function getPlayerChoice() {
     return choice;
 }
 
+function getWinner(playerChoice, computerChoice) {
+    if (playerChoice < computerChoice) {
+        // player wins
+        console.log("Player wins");
+    } else if (playerChoice > computerChoice) {
+        // computer wins
+        console.log("Computer wins");
+    } else if (playerChoice === computerChoice) {
+        // it's a draw
+        console.log("It's a draw");
+    }
+}
