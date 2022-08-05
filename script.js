@@ -28,3 +28,7 @@ function judge(player, computer) {
 
     console.log(`The winner is ${winner}`);
 }
+
+while (true) {
+    judge(getPlayerChoice(), getComputerChoice());
+}
