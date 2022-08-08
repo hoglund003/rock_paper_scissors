@@ -10,9 +10,17 @@ const rules = {
     "paper": "rock"
 };
 
-var playerChoice = "";
+var playerScore = 0;
+var computerScore = 0;
+
+function getComputerChoice() {
+    let index = Math.floor(Math.random() * 3);
+    var options = ["rock", "paper", "scissors"];
+    return options[index];
+}
 
 function getPlayerChoice(id) {
+    var playerChoice = "";
     switch(id) {
         case "rock-btn": 
             playerChoice = "rock";
@@ -24,26 +32,7 @@ function getPlayerChoice(id) {
             playerChoice = "scissors";
             break;
     }
-}
-
-rock_btn.addEventListener('click', function(e) {
-    getPlayerChoice(this.id);
-});
-
-paper_btn.addEventListener('click', function(e) {
-    getPlayerChoice(this.id);
-});
-
-scissors_btn.addEventListener('click', function(e) {
-    getPlayerChoice(this.id);
-});
-
-
-
-function getComputerChoice() {
-    let index = Math.floor(Math.random() * 3);
-    var options = ["rock", "paper", "scissors"];
-    return options[index];
+    return playerChoice;
 }
 
 function judge(player, computer) {
@@ -56,6 +45,18 @@ function judge(player, computer) {
         winner = `computer with ${computer} against ${player}`;
     }
 
-    console.log(`The winner is ${winner}`);
+    result_container.innerHTML = winner;
 }
 
+rock_btn.addEventListener('click', function(e) {
+
+    judge(getPlayerChoice(this.id), getComputerChoice());
+});
+
+paper_btn.addEventListener('click', function(e) {
+    judge(getPlayerChoice(this.id), getComputerChoice());
+});
+
+scissors_btn.addEventListener('click', function(e) {
+    judge(getPlayerChoice(this.id), getComputerChoice());
+});
