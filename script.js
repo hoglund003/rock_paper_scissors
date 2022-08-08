@@ -2,6 +2,8 @@ const rock_btn = document.querySelector('#rock-btn');
 const paper_btn = document.querySelector('#paper-btn');
 const scissors_btn = document.querySelector('#scissors-btn');
 
+const result_container = document.querySelector('#result-container');
+
 var rules = {
     "rock": "scissors",
     "scissors": "paper",
