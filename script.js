@@ -36,15 +36,28 @@ function getPlayerChoice(id) {
 }
 
 function judge(player, computer) {
-    var winner = "";
+    var winner = "The winner is ";
     if (player === computer) {
         winner = "none";
     } else if (rules[player] === computer) {
-        winner = `player with ${player} against ${computer}`;
+        winner += `player with ${player} against ${computer}.`;
+        playerScore += 1;
     } else if (rules[computer] === player) {
-        winner = `computer with ${computer} against ${player}`;
+        winner += `computer with ${computer} against ${player}.`;
+        computerScore += 1;
     }
-
+    
+    
+    if (playerScore >= 5) {
+        winner += `. Player wins this game with ${playerScore} against ${computerScore}`;
+        playerScore = 0, computerScore = 0;
+    } else if (computerScore >= 5) {
+        winner += `. Computer wins this game with ${computerScore} against ${playerScore}`;
+        playerScore = 0, computerScore = 0;
+    } else {
+        winner += `. Points: Player: ${playerScore} - ${computerScore} :Computer`
+    }
+    
     result_container.innerHTML = winner;
 }
 
