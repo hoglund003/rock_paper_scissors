@@ -1,14 +1,42 @@
+const rock_btn = document.querySelector('#rock-btn');
+const paper_btn = document.querySelector('#paper-btn');
+const scissors_btn = document.querySelector('#scissors-btn');
+
 var rules = {
     "rock": "scissors",
     "scissors": "paper",
     "paper": "rock"
 };
 
-function getPlayerChoice() {
-    var choice = prompt("Please enter your choice: ");
-    choice = choice.toLowerCase();
-    return choice;
+var playerChoice = "";
+
+function getPlayerChoice(id) {
+    switch(id) {
+        case "rock-btn": 
+            playerChoice = "rock";
+            break;
+        case "paper-btn":
+            playerChoice = "paper";
+            break;
+        case "scissors-btn":
+            playerChoice = "scissors";
+            break;
+    }
 }
+
+rock_btn.addEventListener('click', function(e) {
+    getPlayerChoice(this.id);
+});
+
+paper_btn.addEventListener('click', function(e) {
+    getPlayerChoice(this.id);
+});
+
+scissors_btn.addEventListener('click', function(e) {
+    getPlayerChoice(this.id);
+});
+
+
 
 function getComputerChoice() {
     let index = Math.floor(Math.random() * 3);
@@ -29,6 +57,3 @@ function judge(player, computer) {
     console.log(`The winner is ${winner}`);
 }
 
-while (true) {
-    judge(getPlayerChoice(), getComputerChoice());
-}
